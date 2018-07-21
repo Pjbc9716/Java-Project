@@ -3,24 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package juegotrivia;
+package project.models;
 
 /**
  *
  * @author PJ129
  */
-public class Registro {
-    private String userNickname,
+public class User {
+    String userNickname,
             userPassword,
             userCountry;
-    private int userAge,userPriovity;
+    int userAge,
+            userPoints,
+            userLifes;
 
-    public Registro(String userNaickname, String userPassword, String userCountry, int userAge, int userPriovity) {
-        this.userNickname = userNaickname;
+    public User(String userNickname, String userPassword, String userCountry, int userAge) {
+        this.userNickname = userNickname;
         this.userPassword = userPassword;
-        this.userCountry =  userCountry;
+        this.userCountry = userCountry;
         this.userAge = userAge;
-        this.userPriovity = userPriovity;
+        this.userPoints = 000;
+        this.userLifes = 5;
     }
 
     public String getUserNickname() {
@@ -55,18 +58,29 @@ public class Registro {
         this.userAge = userAge;
     }
 
-    public int getUserPriovity() {
-        return userPriovity;
+    public int getUserPoints() {
+        return userPoints;
     }
 
-    public void setUserPriovity(int userPriovity) {
-        this.userPriovity = userPriovity;
+    public void setUserPoints(int userPoints) {
+        this.userPoints = userPoints;
+    }
+
+    public int getUserLifes() {
+        return userLifes;
+    }
+
+    public void setUserLifes(int userLifes) {
+        this.userLifes = userLifes;
     }
 
     @Override
     public String toString() {
-        return "Registro{" + "userNickname=" + userNickname + ", userPassword=" + userPassword + ", userCountry=" + userCountry + ", userAge=" + userAge + ", userPriovity=" + userPriovity + '}';
+        return "User{" + "userNickname=" + userNickname + ", userPassword=" + userPassword + ", userCountry=" + userCountry + ", userAge=" + userAge + ", userPoints=" + userPoints + ", userLifes=" + userLifes + '}';
     }
+    
+    
+    
     
     
 }

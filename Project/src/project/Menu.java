@@ -33,10 +33,19 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         btnSignIn = new javax.swing.JButton();
         btnLogIn = new javax.swing.JButton();
         jblBackground = new javax.swing.JLabel();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -44,8 +53,9 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("TRIVIA GAME");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/TriviaGame_Logo.png"))); // NOI18N
+        jLabel1.setToolTipText("");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
 
         btnSignIn.setBackground(new java.awt.Color(51, 153, 255));
         btnSignIn.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -56,7 +66,7 @@ public class Menu extends javax.swing.JFrame {
                 btnSignInMouseClicked(evt);
             }
         });
-        getContentPane().add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 220, 90));
+        getContentPane().add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 220, 90));
 
         btnLogIn.setBackground(new java.awt.Color(51, 153, 255));
         btnLogIn.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -67,9 +77,10 @@ public class Menu extends javax.swing.JFrame {
                 btnLogInMouseClicked(evt);
             }
         });
-        getContentPane().add(btnLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 220, 90));
+        getContentPane().add(btnLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 220, 90));
 
-        jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Background.jpg"))); // NOI18N
+        jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/CoolBackground.jpg"))); // NOI18N
+        jblBackground.setPreferredSize(new java.awt.Dimension(700, 600));
         getContentPane().add(jblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -129,6 +140,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnLogIn;
     private javax.swing.JButton btnSignIn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel jblBackground;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,16 +10,20 @@ package project.models;
  * @author PJ129
  */
 public class Question {
-    String question,
+
+    private String question,
             correctOption,
             option1,
-            option2;
+            option2,
+            alreadyAnswered;
 
     public Question(String question, String correctOption, String option1, String option2) {
         this.question = question;
         this.correctOption = correctOption;
         this.option1 = option1;
         this.option2 = option2;
+        this.alreadyAnswered = "No";
+
     }
 
     public String getQuestion() {
@@ -54,10 +58,17 @@ public class Question {
         this.option2 = option2;
     }
 
+    public String getAlreadyAnswered() {
+        return alreadyAnswered;
+    }
+
+    public void setAlreadyAnswered(String alreadyAnswered) {
+        this.alreadyAnswered = alreadyAnswered;
+    }
+
     @Override
     public String toString() {
-        return "Question{" + "question=" + question + ", correctOption=" + correctOption + ", option1=" + option1 + ", option2=" + option2 + '}';
+        return "Question{" + "question=" + question + ", correctOption=" + correctOption + ", option1=" + option1 + ", option2=" + option2 + ", alreadyAnswered=" + alreadyAnswered + '}';
     }
-    
-    
+
 }

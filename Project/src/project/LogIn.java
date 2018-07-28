@@ -5,6 +5,7 @@
  */
 package project;
 
+import javax.swing.JOptionPane;
 import project.logic.Administrador;
 
 /**
@@ -45,27 +46,34 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("TRIVIA GAME");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/TriviaGame_Logo.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         jblNickname.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jblNickname.setForeground(new java.awt.Color(255, 255, 255));
         jblNickname.setText("Nickname:");
-        getContentPane().add(jblNickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+        getContentPane().add(jblNickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
 
         jblPassword.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jblPassword.setForeground(new java.awt.Color(255, 255, 255));
         jblPassword.setText("Password:");
-        getContentPane().add(jblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+        getContentPane().add(jblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
 
         txtNickname.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
-        getContentPane().add(txtNickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 270, -1));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 270, 40));
+        getContentPane().add(txtNickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 270, -1));
+
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 270, 40));
 
         jblForgetPassword.setFont(new java.awt.Font("Calibri", 2, 24)); // NOI18N
         jblForgetPassword.setForeground(new java.awt.Color(255, 0, 51));
         jblForgetPassword.setText("Olvide la contraseña");
-        getContentPane().add(jblForgetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
+        jblForgetPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jblForgetPasswordMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jblForgetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, -1, -1));
 
         btnLogIn.setBackground(new java.awt.Color(0, 51, 153));
         btnLogIn.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -76,9 +84,10 @@ public class LogIn extends javax.swing.JFrame {
                 btnLogInMouseClicked(evt);
             }
         });
-        getContentPane().add(btnLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
+        getContentPane().add(btnLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 180, 40));
 
-        jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Background.jpg"))); // NOI18N
+        jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/CoolBackground.jpg"))); // NOI18N
+        jblBackground.setPreferredSize(new java.awt.Dimension(700, 600));
         getContentPane().add(jblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -89,9 +98,16 @@ public class LogIn extends javax.swing.JFrame {
         char [] passwordChar = jPasswordField1.getPassword();
         String password = new String (passwordChar);
         String nickname = txtNickname.getText();
-        this.myadiministrador.correctInfo(nickname, password);
-        
+        int position = this.myadiministrador.getUserPosition(nickname);
+        if (this.myadiministrador.correctInfo(nickname, password)){
+            MainMenu myMainMenu = new MainMenu(this.myadiministrador,position);
+            myMainMenu.setVisible(true);
+        }
     }//GEN-LAST:event_btnLogInMouseClicked
+
+    private void jblForgetPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblForgetPasswordMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jblForgetPasswordMouseClicked
 
     /**
      * @param args the command line arguments

@@ -61,39 +61,39 @@ public class SignIn extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("TRIVIA GAME");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/TriviaGame_Logo.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nickname:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Verifique Password:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Edad:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Pais:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, -1, -1));
 
         txtNickname.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        getContentPane().add(txtNickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 310, -1));
+        getContentPane().add(txtNickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 310, -1));
 
         jPassword.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 310, -1));
+        getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 310, -1));
 
         jPasswordVerify.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jPasswordVerify.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,15 +101,15 @@ public class SignIn extends javax.swing.JFrame {
                 jPasswordVerifyMouseClicked(evt);
             }
         });
-        getContentPane().add(jPasswordVerify, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 310, -1));
+        getContentPane().add(jPasswordVerify, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 310, -1));
 
         jcbAge.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jcbAge.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99" }));
-        getContentPane().add(jcbAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
+        getContentPane().add(jcbAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, -1, -1));
 
         jcbCountry.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jcbCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione su pais", "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República de Macedonia", "República del Congo", "República Democrática del Congo", "República Dominicana", "República Sudafricana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia" }));
-        getContentPane().add(jcbCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, -1, -1));
+        getContentPane().add(jcbCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, -1, -1));
 
         btnRegister.setBackground(new java.awt.Color(0, 51, 153));
         btnRegister.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -120,34 +120,35 @@ public class SignIn extends javax.swing.JFrame {
                 btnRegisterMouseClicked(evt);
             }
         });
-        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, -1, -1));
+        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 560, -1, -1));
 
-        Length.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        Length.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         Length.setForeground(new java.awt.Color(255, 255, 255));
         Length.setText("Contiene al menos 8 caracteres.");
-        getContentPane().add(Length, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
+        getContentPane().add(Length, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
-        hasSign.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        hasSign.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         hasSign.setForeground(new java.awt.Color(255, 255, 255));
         hasSign.setText("Contiene al menos un \"@\",\"$\",\"&\"");
-        getContentPane().add(hasSign, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, -1));
+        getContentPane().add(hasSign, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
 
-        hasNumber.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        hasNumber.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         hasNumber.setForeground(new java.awt.Color(255, 255, 255));
         hasNumber.setText("Contiene un numero");
-        getContentPane().add(hasNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, -1, -1));
+        getContentPane().add(hasNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, -1, -1));
 
         jblLengthImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Check.png"))); // NOI18N
-        getContentPane().add(jblLengthImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+        getContentPane().add(jblLengthImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
 
         jblHasSignImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Check.png"))); // NOI18N
-        getContentPane().add(jblHasSignImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
+        getContentPane().add(jblHasSignImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
 
         jblHasNumberImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\PJ129\\Downloads\\Check.png")); // NOI18N
-        getContentPane().add(jblHasNumberImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
+        getContentPane().add(jblHasNumberImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, -1, -1));
 
         jblBackground.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Background.jpg"))); // NOI18N
+        jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/CoolBackground.jpg"))); // NOI18N
+        jblBackground.setPreferredSize(new java.awt.Dimension(700, 600));
         getContentPane().add(jblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

@@ -21,6 +21,7 @@ public class Project {
         myadministrador.fillQuestioList();
         myadministrador.fillUserList();
         System.out.println("Hola");
+        System.out.println("Adios");
         Menu mymenu = new Menu (myadministrador);
         mymenu.setVisible(true);
     }

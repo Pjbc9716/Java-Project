@@ -6,6 +6,7 @@
 package project;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import project.logic.Administrador;
 
 /**
@@ -18,23 +19,26 @@ public class GameControl extends javax.swing.JFrame {
         switch (type) {
             case 1:
                 btnOption1.setText(this.myadministradror.questionList.get(question).getCorrectOption());
+                correctButton = btnOption1;
                 btnOption2.setText(this.myadministradror.questionList.get(question).getOption1());
                 btnOption3.setText(this.myadministradror.questionList.get(question).getOption2());
                 break;
             case 2:
                 btnOption2.setText(this.myadministradror.questionList.get(question).getCorrectOption());
+                correctButton = btnOption2;
                 btnOption3.setText(this.myadministradror.questionList.get(question).getOption1());
                 btnOption1.setText(this.myadministradror.questionList.get(question).getOption2());
                 break;
             case 3:
                 btnOption3.setText(this.myadministradror.questionList.get(question).getCorrectOption());
+                correctButton = btnOption3;
                 btnOption1.setText(this.myadministradror.questionList.get(question).getOption1());
                 btnOption2.setText(this.myadministradror.questionList.get(question).getOption2());
         }
     }
 
     public void setAlignment(int question, JButton button1, JButton button2, JButton button3) {
-        if (this.myadministradror.questionList.get(question).getCorrectOption().length() > 22) {
+        if (this.myadministradror.questionList.get(question).getCorrectOption().length() > 20) {
             button1.setHorizontalAlignment(2);
             button2.setHorizontalAlignment(2);
             button3.setHorizontalAlignment(2);
@@ -46,20 +50,42 @@ public class GameControl extends javax.swing.JFrame {
     
     }
     public void setSize (int question){
-        if (this.myadministradror.questionList.get(question).getQuestion().length()>20){
+        if (this.myadministradror.questionList.get(question).getQuestion().length()>40){
             jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/GiantBackground.png")));
+            this.setSize(900, 800);
+            System.out.println();
+            
         }
     }
+        public void verifyLifes (int points,int userPosition ){
+            if (points==points+1000){
+                int userLifes = this.myadministradror.userInfo.get(userPosition).getUserLifes();
+                this.myadministradror.userInfo.get(userPosition).setUserLifes(userLifes+1);
+            }
+        }
+        
+    
 
     /**
      * Creates new form GameControl
      */
     Administrador myadministradror;
-    public GameControl(Administrador myList) {
+    JButton correctButton;
+    int userPosition;
+    int numberQuestion;
+    public GameControl(Administrador myList, int userPosition, int numberQuestion) {
         initComponents();
+        this.btnContinue.setVisible(false);
+        this.jblResult.setVisible(false);
+        this.setPreferredSize(new java.awt.Dimension(400, 400));
+        this.numberQuestion = numberQuestion;
         this.myadministradror = myList;
+        this.userPosition = userPosition;
         int question = this.myadministradror.selectQuestion();
         jblQuestion.setText(this.myadministradror.questionList.get(question).getQuestion());
+        this.jblPoints.setText("Puntos: "+this.myadministradror.userInfo.get(userPosition).getUserPoints());
+        this.jblLifes.setText("Vidas: "+this.myadministradror.userInfo.get(userPosition).getUserLifes());
+        this.jblNumberQuestion.setText(this.numberQuestion+"/15");
         this.setButtons(question, myadministradror.setType());
         this.setSize(question);
         this.setAlignment(question, btnOption1, btnOption2, btnOption3);
@@ -77,11 +103,16 @@ public class GameControl extends javax.swing.JFrame {
     private void initComponents() {
 
         jblQuestion = new javax.swing.JLabel();
+        btnContinue = new javax.swing.JButton();
+        btnNextQuestion = new javax.swing.JButton();
         btnOption1 = new javax.swing.JButton();
         btnOption2 = new javax.swing.JButton();
         btnOption3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jblQuestion1 = new javax.swing.JLabel();
+        jblNumberQuestion = new javax.swing.JLabel();
+        jblResult = new javax.swing.JLabel();
+        jblLifes = new javax.swing.JLabel();
+        jblPoints = new javax.swing.JLabel();
         jblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,6 +124,40 @@ public class GameControl extends javax.swing.JFrame {
         jblQuestion.setFocusable(false);
         jblQuestion.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         getContentPane().add(jblQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, 60));
+
+        btnContinue.setBackground(new java.awt.Color(51, 153, 255));
+        btnContinue.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        btnContinue.setForeground(new java.awt.Color(255, 255, 255));
+        btnContinue.setText("Siguiente pregunta");
+        btnContinue.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnContinue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnContinueMouseClicked(evt);
+            }
+        });
+        btnContinue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinueActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnContinue, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 470, 60));
+
+        btnNextQuestion.setBackground(new java.awt.Color(51, 153, 255));
+        btnNextQuestion.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        btnNextQuestion.setForeground(new java.awt.Color(255, 255, 255));
+        btnNextQuestion.setText("Paso");
+        btnNextQuestion.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnNextQuestion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNextQuestionMouseClicked(evt);
+            }
+        });
+        btnNextQuestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextQuestionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnNextQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 540, 170, 60));
 
         btnOption1.setBackground(new java.awt.Color(51, 153, 255));
         btnOption1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -110,7 +175,7 @@ public class GameControl extends javax.swing.JFrame {
                 btnOption1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnOption1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 470, 60));
+        getContentPane().add(btnOption1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 470, 60));
 
         btnOption2.setBackground(new java.awt.Color(51, 153, 255));
         btnOption2.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -122,7 +187,12 @@ public class GameControl extends javax.swing.JFrame {
                 btnOption2MouseClicked(evt);
             }
         });
-        getContentPane().add(btnOption2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 470, 60));
+        btnOption2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOption2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnOption2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 470, 60));
 
         btnOption3.setBackground(new java.awt.Color(51, 153, 255));
         btnOption3.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -140,7 +210,7 @@ public class GameControl extends javax.swing.JFrame {
                 btnOption3ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnOption3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 470, 60));
+        getContentPane().add(btnOption3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 470, 60));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,13 +218,37 @@ public class GameControl extends javax.swing.JFrame {
         jLabel1.setToolTipText("");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
 
-        jblQuestion1.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
-        jblQuestion1.setForeground(new java.awt.Color(255, 255, 255));
-        jblQuestion1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jblQuestion1.setText("Puntos:");
-        jblQuestion1.setFocusable(false);
-        jblQuestion1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jblQuestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, -1, 60));
+        jblNumberQuestion.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        jblNumberQuestion.setForeground(new java.awt.Color(255, 255, 255));
+        jblNumberQuestion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jblNumberQuestion.setText("0/15");
+        jblNumberQuestion.setFocusable(false);
+        jblNumberQuestion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jblNumberQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, -1, 60));
+
+        jblResult.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        jblResult.setForeground(new java.awt.Color(0, 204, 0));
+        jblResult.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jblResult.setText("Buena!");
+        jblResult.setFocusable(false);
+        jblResult.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, 60));
+
+        jblLifes.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        jblLifes.setForeground(new java.awt.Color(255, 255, 255));
+        jblLifes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jblLifes.setText("Vidas:");
+        jblLifes.setFocusable(false);
+        jblLifes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jblLifes, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, -1, 60));
+
+        jblPoints.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        jblPoints.setForeground(new java.awt.Color(255, 255, 255));
+        jblPoints.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jblPoints.setText("Puntos:");
+        jblPoints.setFocusable(false);
+        jblPoints.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jblPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, 60));
 
         jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/BigBackground.png"))); // NOI18N
         getContentPane().add(jblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -163,15 +257,77 @@ public class GameControl extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOption1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOption1MouseClicked
-
+    this.numberQuestion++;
+        if (btnOption1.equals(correctButton)){
+        this.jblResult.setVisible(true);
+        int points = this.myadministradror.userInfo.get(this.userPosition).getUserPoints()+100;
+        this.myadministradror.userInfo.get(this.userPosition).setUserPoints(points);
+        this.jblPoints.setText("Puntos: "+this.myadministradror.userInfo.get(this.userPosition).getUserPoints());
+//        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition,this.numberQuestion);
+//        mygameControl.setVisible(true);
+this.btnOption1.setVisible(false);
+this.btnOption2.setVisible(false);
+this.btnOption3.setVisible(false);
+          this.btnContinue.setVisible(true);
+          
+    }else{
+        this.jblResult.setText("Mala");
+        this.jblResult.setForeground(new java.awt.Color(255, 51, 51));
+        this.jblResult.setVisible(true);
+        int lifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes()-1;
+        this.myadministradror.userInfo.get(this.userPosition).setUserLifes(lifes);
+        jblLifes.setText("Vidas: "+this.myadministradror.userInfo.get(this.userPosition).getUserLifes());
+//        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition, this.numberQuestion);
+//        mygameControl.setVisible(true);
+          this.btnContinue.setVisible(true);
+    }
     }//GEN-LAST:event_btnOption1MouseClicked
 
     private void btnOption2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOption2MouseClicked
-        // TODO add your handling code here:
+
+    this.numberQuestion++;
+        if (btnOption2.equals(correctButton)){
+            this.jblResult.setVisible(true);
+        int points = this.myadministradror.userInfo.get(this.userPosition).getUserPoints()+100;
+        this.myadministradror.userInfo.get(this.userPosition).setUserPoints(points);
+        this.jblPoints.setText("Puntos: "+this.myadministradror.userInfo.get(this.userPosition).getUserPoints());
+        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition,this.numberQuestion);
+        mygameControl.setVisible(true);
+    }else{
+        this.jblResult.setText("Mala");
+        this.jblResult.setForeground(new java.awt.Color(255, 51, 51));
+        this.jblResult.setVisible(true);
+        int lifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes()-1;
+        this.myadministradror.userInfo.get(this.userPosition).setUserLifes(lifes);
+        jblLifes.setText("Vidas: "+this.myadministradror.userInfo.get(this.userPosition).getUserLifes());
+        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition, this.numberQuestion);
+        mygameControl.setVisible(true);
+    }     
     }//GEN-LAST:event_btnOption2MouseClicked
 
     private void btnOption3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOption3MouseClicked
         // TODO add your handling code here:
+    this.numberQuestion++;
+        if (btnOption3.equals(correctButton)){
+        this.jblResult.setVisible(true);
+        int points = this.myadministradror.userInfo.get(this.userPosition).getUserPoints()+100;
+        this.myadministradror.userInfo.get(this.userPosition).setUserPoints(points);
+        this.jblPoints.setText("Puntos: "+this.myadministradror.userInfo.get(this.userPosition).getUserPoints());
+        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition,this.numberQuestion);
+        mygameControl.setVisible(true);
+
+    }else{
+        this.jblResult.setText("Mala");
+        this.jblResult.setForeground(new java.awt.Color(255, 51, 51));
+        this.jblResult.setVisible(true);
+        int lifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes()-1;
+        this.myadministradror.userInfo.get(this.userPosition).setUserLifes(lifes);
+        jblLifes.setText("Vidas: "+this.myadministradror.userInfo.get(this.userPosition).getUserLifes());
+        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition, this.numberQuestion);
+        mygameControl.setVisible(true);
+            MainMenu mainMenu = new MainMenu(this.myadministradror, this.userPosition);
+            mainMenu.setVisible(true);
+    }
     }//GEN-LAST:event_btnOption3MouseClicked
 
     private void btnOption1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOption1ActionPerformed
@@ -181,6 +337,26 @@ public class GameControl extends javax.swing.JFrame {
     private void btnOption3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOption3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOption3ActionPerformed
+
+    private void btnNextQuestionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextQuestionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNextQuestionMouseClicked
+
+    private void btnNextQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextQuestionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNextQuestionActionPerformed
+
+    private void btnContinueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnContinueMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnContinueMouseClicked
+
+    private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnContinueActionPerformed
+
+    private void btnOption2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOption2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOption2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,18 +389,25 @@ public class GameControl extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Administrador myList = new Administrador ();
-                new GameControl(myList).setVisible(true);
+                int position =-1;
+                int numberQuestion =0;
+                new GameControl(myList, position, numberQuestion).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnContinue;
+    private javax.swing.JButton btnNextQuestion;
     private javax.swing.JButton btnOption1;
     private javax.swing.JButton btnOption2;
     private javax.swing.JButton btnOption3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jblBackground;
+    private javax.swing.JLabel jblLifes;
+    private javax.swing.JLabel jblNumberQuestion;
+    private javax.swing.JLabel jblPoints;
     private javax.swing.JLabel jblQuestion;
-    private javax.swing.JLabel jblQuestion1;
+    private javax.swing.JLabel jblResult;
     // End of variables declaration//GEN-END:variables
 }

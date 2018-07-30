@@ -18,7 +18,6 @@ public class Administrador {
 
     public ArrayList<User> userInfo = new ArrayList<>();
     public ArrayList<Question> questionList = new ArrayList<>();
-
     public void fillUserList() {
         User myUser = new User("Administrador", "TG2018JAVA", "C.R.C", 00);
         userInfo.add(myUser);
@@ -27,13 +26,13 @@ public class Administrador {
 
     public void fillQuestioList() {
         //68 Preguntas
-        questionList.add(new Question("Cual es la ciudad mas poblada\n del mundo?", "Tokio", "Moscu", "Mexico DF" ));//0
-        questionList.add(new Question("Quien es considerado el Rey del Pop?", "Michael Jackson", "Justin Bieber", "Justin Timberlake"));//1
-        questionList.add(new Question("Cual es el pais mas grande de America?", "Canada", "Brasil", "Estados Unidos"));//2
-        questionList.add(new Question("En que año cayo el muro de Berlin?", "1989", "1990", "1991"));//3
-        questionList.add(new Question("Cual es la consola mas vendida de toda la historia", "PlayStation 2", "PlayStation", "Nintendo DS"));//4
-        questionList.add(new Question("Cual es la unidad fundamental de la vida?", "Celula", "Tejido", "Neuronas"));//5
-        questionList.add(new Question("Quien escribio la Odisea", "Homero", "Borges", "Coelho"));//6
+        questionList.add(new Question("¿Cual es la ciudad mas poblada\n del mundo?", "Tokio", "Moscu", "Mexico DF" ));//0
+        questionList.add(new Question("¿Quien es considerado el Rey del Pop?", "Michael Jackson", "Justin Bieber", "Justin Timberlake"));//1
+        questionList.add(new Question("¿Cual es el pais mas grande de America?", "Canada", "Brasil", "Estados Unidos"));//2
+        questionList.add(new Question("¿En que año cayo el muro de Berlin?", "1989", "1990", "1991"));//3
+        questionList.add(new Question("¿Cual es la consola mas vendida de toda la historia?", "PlayStation 2", "PlayStation", "Nintendo DS"));//4
+        questionList.add(new Question("¿Cual es la unidad fundamental de la vida?", "Celula", "Tejido", "Neuronas"));//5
+        questionList.add(new Question("¿Quien escribio la Odisea?", "Homero", "Borges", "Coelho"));//6
         questionList.add(new Question("¿Cual es el río más largo del mundo?", "Amazonas", "Volga", "Missisipi"));//7
         questionList.add(new Question("¿Donde se originaron los Juegos Olimpicos?", "Grecia", "Roma", "Egipto"));//8
         questionList.add(new Question("¿Como se le llama al resultado de una multiplicación?", "Producto", "Resultado", "Residuo"));//9
@@ -41,14 +40,14 @@ public class Administrador {
         questionList.add(new Question("¿Que país se caracteriza por tener la forma de una bota?", "Italia", "Holanda", "Francia"));//11
         questionList.add(new Question("¿En que año comenzó la Segunda Guerra Mundial?", "1939", "1935", "1937"));//12
         questionList.add(new Question("¿Cuantas patas tiene una araña?", "8", "6", "7"));//13
-        questionList.add(new Question("¿¿Quien va a la carcel: el acusado, el condenado, el imputado?", "el condenado", "el acusado", "el imputado"));//14
+        questionList.add(new Question("¿Quien va a la carcel: el acusado, el condenado, el imputado?", "el condenado", "el acusado", "el imputado"));//14
         questionList.add(new Question("¿Cual fue el primer metal empleado por un ser humano?", "cobre", "plata", "oro"));//15
         questionList.add(new Question("¿Cual es el primer número primo?", "2", "3", "1"));//16
         questionList.add(new Question("¿Quien es el autor de Hamlet?", "Shakespeare", "Homero", "Borges"));//17
         questionList.add(new Question("¿Cuantos años tiene un lustro?", "5", "4", "6"));//18
-        this.questionList.add(new Question ("En cual pais se encuentra la Universidad de Cambridge","Inglaterra","EE.UU","Alemania"));//19
+        this.questionList.add(new Question ("¿En cual pais se encuentra la Universidad de Cambridge?","Inglaterra","EE.UU","Alemania"));//19
         this.questionList.add(new Question ("¿Como se le llama al procedimiento de alzar una bandera?","Izar","Levantamiento de bandera","Saludo a la bandera"));//20
-        this.questionList.add(new Question ("Cual es el unico animal que no puede saltar","El elefante","El ornitorrinco","La hormiga"));//21
+        this.questionList.add(new Question ("¿Cual es el unico animal que no puede saltar?","El elefante","El ornitorrinco","La hormiga"));//21
         this.questionList.add(new Question ("¿Cuál es el animal que emite el sonido más alto?","La ballena jorobada","El leon","El elefante"));//22
         this.questionList.add(new Question ("¿Qué atrae más al mosquito cuando está en búsqueda de alimento?","El color azul","Una gota de sangre al aire libre","El sonido de las palpitaciones"));//23
         this.questionList.add(new Question ("¿Qué animal puede ver la luz infrarroja y ultravioleta?","El pez dorado","El esquimal","El pez pulmonado"));//24
@@ -71,7 +70,7 @@ public class Administrador {
         this.questionList.add(new Question ("CAMBIAR PREGUNTA POR EL TAMANO","16","22","1"));//41
         this.questionList.add(new Question ("¿Cuánto se duró construir el acorazado Bismarck?","5 años","7 meses","10 años"));//42
         this.questionList.add(new Question ("¿Cuál se piensa que fue la versión terrestre de la Guerra Fría?","Los juegos Olimpicos de Helsinki","La creacion del primero videojuego","El enfretamient de Corea"));//43
-        this.questionList.add(new Question ("Laura fue un nombre famoso en la Segunda Gran Guerra. ¿Por qué?","Era el nombre del armamento aleman","Era el plan para matar a Hitler","El nombre del Tratado de Rendicion"));//44
+        this.questionList.add(new Question ("Laura fue un nombre famoso en la Segunda Guerra Mundial. ¿Por qué?","Era el nombre del armamento aleman","Era el plan para matar a Hitler","El nombre del Tratado de Rendicion"));//44
         this.questionList.add(new Question ("¿Qué frase se hizo popular tras la conquista del Imperio Inca?","Le costo un ojo de la cara","En casa de herrero,cuchillo de palo","Vea yogur..."));//45
         this.questionList.add(new Question ("¿Qué avión arrojó la bomba sobre la ciudad de Hiroshima?","El Enola Gay","El Little Boy","El National Bomber"));//46
         this.questionList.add(new Question ("¿Cuántos equipos participaron en el mundial de Uruguay 1930?","13","16","14"));//47
@@ -81,7 +80,7 @@ public class Administrador {
         this.questionList.add(new Question ("¿Qué descubrimiento hizo la NASA en 2006, sobre Saturno?","Encontró un nuevo anillo","Encontró bloques de hielo","Descubrió unas cavernas"));//51
         this.questionList.add(new Question ("¿A qué se denomina “el brazo de Orión”?","El sector que esta el sistema Solar","A la Vía Láctea","A la constelacion:Las Tres Marias"));//52
         this.questionList.add(new Question ("¿Qué astro fue “degradado” en 2006?","Plutón","Neptuno","Mercurio"));//53
-        this.questionList.add(new Question ("Cuál es el planeta que su rotacion es diferente a los demas","Venus","Tierra","Mercurio"));//54
+        this.questionList.add(new Question ("¿Cuál es el planeta que su rotacion es diferente a los demas?","Venus","Tierra","Mercurio"));//54
         this.questionList.add(new Question ("¿Cuántos años tiene la Tierra?","4500 millones","8900 millones","3700 millones"));//55
         this.questionList.add(new Question ("¿Cuántos planetas componen el Sistema Solar?","8","9","12"));//56
         this.questionList.add(new Question ("¿Cuáles son los integrantes del grupo de “planetas interiores”?","Mercurio,la Tierra,Venus y Marte","Mercurio,Marte,Venus y Jupiter","La Tierra,Mercurio,Venus y Urano"));//57
@@ -111,9 +110,11 @@ public class Administrador {
         } else {
             newNickname = false;
         }
-        if (nickname.length()>13){
+        if (nickname.length() > 13) {
             JOptionPane.showMessageDialog(null, "El nickname no debe ser mayor a 13 caracteres");
             newNickname = false;
+        }else if (!newNickname) {
+            JOptionPane.showMessageDialog(null, "Nickname ya asignado, ingrese uno diferente");
         }
         return newNickname;
     }
@@ -184,5 +185,4 @@ public class Administrador {
         System.out.println(type);
         return type;
     }
-
 }

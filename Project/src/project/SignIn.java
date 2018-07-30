@@ -195,16 +195,11 @@ public class SignIn extends javax.swing.JFrame {
             Menu myMenu = new Menu(myadministrador);
             myMenu.setVisible(true);
         }
-        if (!correctNickname) {
-            JOptionPane.showMessageDialog(null, "Nickname ya asignado, ingrese uno diferente");
-        }
-        if (!correctPassword) {
+         if (!correctPassword) {
             JOptionPane.showMessageDialog(null, "Password incorrecta, por favor seguir todos los parametros");
-        }
-        if (!myadministrador.verifyCountry(country)) {
+        } else if (!myadministrador.verifyCountry(country)) {
             JOptionPane.showMessageDialog(null, "Por favor seleccione un pais");
-        }
-        if (!passwordMatches) {
+        } else if (!passwordMatches) {
             JOptionPane.showMessageDialog(null, "Los password no verifica, por favor verifique los password");
         }
         for (int i = 0; i < myadministrador.userInfo.size(); i++) {

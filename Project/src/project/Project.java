@@ -20,7 +20,6 @@ public class Project {
         Administrador myadministrador = new Administrador();
         myadministrador.fillQuestioList();
         myadministrador.fillUserList();
-;
         Menu mymenu = new Menu (myadministrador);
         mymenu.setVisible(true);
     }

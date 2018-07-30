@@ -52,9 +52,7 @@ public class GameControl extends javax.swing.JFrame {
     public void setSize (int question){
         if (this.myadministradror.questionList.get(question).getQuestion().length()>40){
             jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/GiantBackground.png")));
-            this.setSize(900, 800);
-            System.out.println();
-            
+            this.setSize(900, 700);            
         }
     }
         public void verifyLifes (int points,int userPosition ){
@@ -257,77 +255,90 @@ public class GameControl extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOption1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOption1MouseClicked
-    this.numberQuestion++;
-        if (btnOption1.equals(correctButton)){
-        this.jblResult.setVisible(true);
-        int points = this.myadministradror.userInfo.get(this.userPosition).getUserPoints()+100;
-        this.myadministradror.userInfo.get(this.userPosition).setUserPoints(points);
-        this.jblPoints.setText("Puntos: "+this.myadministradror.userInfo.get(this.userPosition).getUserPoints());
+        this.numberQuestion++;
+        if (btnOption1.equals(correctButton)) {
+            this.jblResult.setVisible(true);
+            int points = this.myadministradror.userInfo.get(this.userPosition).getUserPoints() + 100;
+            this.myadministradror.userInfo.get(this.userPosition).setUserPoints(points);
+            this.jblPoints.setText("Puntos: " + this.myadministradror.userInfo.get(this.userPosition).getUserPoints());
 //        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition,this.numberQuestion);
 //        mygameControl.setVisible(true);
-this.btnOption1.setVisible(false);
-this.btnOption2.setVisible(false);
-this.btnOption3.setVisible(false);
-          this.btnContinue.setVisible(true);
-          
-    }else{
-        this.jblResult.setText("Mala");
-        this.jblResult.setForeground(new java.awt.Color(255, 51, 51));
-        this.jblResult.setVisible(true);
-        int lifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes()-1;
-        this.myadministradror.userInfo.get(this.userPosition).setUserLifes(lifes);
-        jblLifes.setText("Vidas: "+this.myadministradror.userInfo.get(this.userPosition).getUserLifes());
+            this.btnOption1.setVisible(false);
+            this.btnNextQuestion.setVisible(false);
+            this.btnOption2.setVisible(false);
+            this.btnOption3.setVisible(false);
+            this.btnContinue.setVisible(true);
+
+        } else {
+            this.jblResult.setText("Mala");
+            this.jblResult.setForeground(new java.awt.Color(255, 51, 51));
+            this.jblResult.setVisible(true);
+            int lifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes() - 1;
+            this.myadministradror.userInfo.get(this.userPosition).setUserLifes(lifes);
+            jblLifes.setText("Vidas: " + this.myadministradror.userInfo.get(this.userPosition).getUserLifes());
 //        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition, this.numberQuestion);
 //        mygameControl.setVisible(true);
-          this.btnContinue.setVisible(true);
-    }
+            this.btnOption1.setVisible(false);
+            this.btnNextQuestion.setVisible(false);
+            this.btnOption2.setVisible(false);
+            this.btnOption3.setVisible(false);
+            this.btnContinue.setVisible(true);
+        }
     }//GEN-LAST:event_btnOption1MouseClicked
 
     private void btnOption2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOption2MouseClicked
-
-    this.numberQuestion++;
-        if (btnOption2.equals(correctButton)){
+        this.numberQuestion++;
+        if (btnOption2.equals(correctButton)) {
             this.jblResult.setVisible(true);
-        int points = this.myadministradror.userInfo.get(this.userPosition).getUserPoints()+100;
-        this.myadministradror.userInfo.get(this.userPosition).setUserPoints(points);
-        this.jblPoints.setText("Puntos: "+this.myadministradror.userInfo.get(this.userPosition).getUserPoints());
-        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition,this.numberQuestion);
-        mygameControl.setVisible(true);
-    }else{
-        this.jblResult.setText("Mala");
-        this.jblResult.setForeground(new java.awt.Color(255, 51, 51));
-        this.jblResult.setVisible(true);
-        int lifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes()-1;
-        this.myadministradror.userInfo.get(this.userPosition).setUserLifes(lifes);
-        jblLifes.setText("Vidas: "+this.myadministradror.userInfo.get(this.userPosition).getUserLifes());
-        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition, this.numberQuestion);
-        mygameControl.setVisible(true);
-    }     
+            int points = this.myadministradror.userInfo.get(this.userPosition).getUserPoints() + 100;
+            this.myadministradror.userInfo.get(this.userPosition).setUserPoints(points);
+            this.jblPoints.setText("Puntos: " + this.myadministradror.userInfo.get(this.userPosition).getUserPoints());
+            this.btnOption1.setVisible(false);
+            this.btnNextQuestion.setVisible(false);
+            this.btnOption2.setVisible(false);
+            this.btnOption3.setVisible(false);
+            this.btnContinue.setVisible(true);
+        } else {
+            this.jblResult.setText("Mala");
+            this.jblResult.setForeground(new java.awt.Color(255, 51, 51));
+            this.jblResult.setVisible(true);
+            int lifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes() - 1;
+            this.myadministradror.userInfo.get(this.userPosition).setUserLifes(lifes);
+            jblLifes.setText("Vidas: " + this.myadministradror.userInfo.get(this.userPosition).getUserLifes());
+            this.btnOption1.setVisible(false);
+            this.btnNextQuestion.setVisible(false);
+            this.btnOption2.setVisible(false);
+            this.btnOption3.setVisible(false);
+            this.btnContinue.setVisible(true);
+        }    
     }//GEN-LAST:event_btnOption2MouseClicked
 
     private void btnOption3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOption3MouseClicked
-        // TODO add your handling code here:
-    this.numberQuestion++;
-        if (btnOption3.equals(correctButton)){
-        this.jblResult.setVisible(true);
-        int points = this.myadministradror.userInfo.get(this.userPosition).getUserPoints()+100;
-        this.myadministradror.userInfo.get(this.userPosition).setUserPoints(points);
-        this.jblPoints.setText("Puntos: "+this.myadministradror.userInfo.get(this.userPosition).getUserPoints());
-        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition,this.numberQuestion);
-        mygameControl.setVisible(true);
+        this.numberQuestion++;
+        if (btnOption3.equals(correctButton)) {
+            this.jblResult.setVisible(true);
+            int points = this.myadministradror.userInfo.get(this.userPosition).getUserPoints() + 100;
+            this.myadministradror.userInfo.get(this.userPosition).setUserPoints(points);
+            this.jblPoints.setText("Puntos: " + this.myadministradror.userInfo.get(this.userPosition).getUserPoints());
+            this.btnOption1.setVisible(false);
+            this.btnNextQuestion.setVisible(false);
+            this.btnOption2.setVisible(false);
+            this.btnOption3.setVisible(false);
+            this.btnContinue.setVisible(true);
 
-    }else{
-        this.jblResult.setText("Mala");
-        this.jblResult.setForeground(new java.awt.Color(255, 51, 51));
-        this.jblResult.setVisible(true);
-        int lifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes()-1;
-        this.myadministradror.userInfo.get(this.userPosition).setUserLifes(lifes);
-        jblLifes.setText("Vidas: "+this.myadministradror.userInfo.get(this.userPosition).getUserLifes());
-        GameControl mygameControl = new GameControl(this.myadministradror, this.userPosition, this.numberQuestion);
-        mygameControl.setVisible(true);
-            MainMenu mainMenu = new MainMenu(this.myadministradror, this.userPosition);
-            mainMenu.setVisible(true);
-    }
+        } else {
+            this.jblResult.setText("Mala");
+            this.jblResult.setForeground(new java.awt.Color(255, 51, 51));
+            this.jblResult.setVisible(true);
+            int lifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes() - 1;
+            this.myadministradror.userInfo.get(this.userPosition).setUserLifes(lifes);
+            jblLifes.setText("Vidas: " + this.myadministradror.userInfo.get(this.userPosition).getUserLifes());
+            this.btnOption1.setVisible(false);
+            this.btnNextQuestion.setVisible(false);
+            this.btnOption2.setVisible(false);
+            this.btnOption3.setVisible(false);
+            this.btnContinue.setVisible(true);
+        }
     }//GEN-LAST:event_btnOption3MouseClicked
 
     private void btnOption1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOption1ActionPerformed

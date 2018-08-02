@@ -73,12 +73,14 @@ public class GameControl extends javax.swing.JFrame {
     int numberQuestion;
     public GameControl(Administrador myList, int userPosition, int numberQuestion) {
         initComponents();
+        this.jblContinueMessage.setVisible(false);
         this.btnContinue.setVisible(false);
         this.jblResult.setVisible(false);
         this.setPreferredSize(new java.awt.Dimension(400, 400));
         this.numberQuestion = numberQuestion;
         this.myadministradror = myList;
         this.userPosition = userPosition;
+        this.gameOver(userPosition);
         int question = this.myadministradror.selectQuestion();
         jblQuestion.setText(this.myadministradror.questionList.get(question).getQuestion());
         this.jblPoints.setText("Puntos: "+this.myadministradror.userInfo.get(userPosition).getUserPoints());
@@ -116,8 +118,14 @@ public class GameControl extends javax.swing.JFrame {
         }
     }
     public void gameOver (int userposition){
-        if (this.numberQuestion > 15 || this.myadministradror.userInfo.get(userposition).getUserLifes()< 0){
-            
+        if (this.numberQuestion > 15 || this.myadministradror.userInfo.get(userposition).getUserLifes()== 0){
+            this.jblQuestion.setVisible(false);
+            this.btnOption1.setVisible(false);
+            this.btnOption2.setVisible(false);
+            this.btnOption3.setVisible(false);
+            this.btnContinue.setVisible(false);
+            this.btnNextQuestion.setVisible(false);
+            this.jblContinueMessage.setVisible(true);
         }
     } 
 
@@ -142,6 +150,7 @@ public class GameControl extends javax.swing.JFrame {
         jblLifes = new javax.swing.JLabel();
         jblPoints = new javax.swing.JLabel();
         jblBackground = new javax.swing.JLabel();
+        jblContinueMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -281,6 +290,13 @@ public class GameControl extends javax.swing.JFrame {
         jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/BigBackground.png"))); // NOI18N
         getContentPane().add(jblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        jblContinueMessage.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
+        jblContinueMessage.setForeground(new java.awt.Color(255, 255, 255));
+        jblContinueMessage.setText("Fin de la Partida");
+        jblContinueMessage.setFocusable(false);
+        jblContinueMessage.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        getContentPane().add(jblContinueMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, 60));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -373,6 +389,7 @@ this.verifyAnswer(btnOption3);
     private javax.swing.JButton btnOption3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jblBackground;
+    private javax.swing.JLabel jblContinueMessage;
     private javax.swing.JLabel jblLifes;
     private javax.swing.JLabel jblNumberQuestion;
     private javax.swing.JLabel jblPoints;

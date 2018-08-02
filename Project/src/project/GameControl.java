@@ -115,6 +115,11 @@ public class GameControl extends javax.swing.JFrame {
             this.btnContinue.setVisible(true);            
         }
     }
+    public void gameOver (int userposition){
+        if (this.numberQuestion > 15 || this.myadministradror.userInfo.get(userposition).getUserLifes()< 0){
+            
+        }
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.

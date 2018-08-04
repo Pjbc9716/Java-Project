@@ -115,6 +115,7 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         GameControl mygame = new GameControl (this.myadministrador, this.userPosition, 0);
         mygame.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnStartGameMouseClicked
 
     private void btnProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMouseClicked

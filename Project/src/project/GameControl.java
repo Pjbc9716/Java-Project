@@ -49,20 +49,13 @@ public class GameControl extends javax.swing.JFrame {
         }
     
     }
-    public void setSize (int question){
+    public void setSizeQuestion (int question){
         if (this.myadministradror.questionList.get(question).getQuestion().length()>40){
             jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/GiantBackground.png")));
-            this.setSize(900, 700);            
+            this.setSize(930, 800);            
         }
     }
-        public void verifyLifes (int points,int userPosition ){
-            if (points==points+1000){
-                int userLifes = this.myadministradror.userInfo.get(userPosition).getUserLifes();
-                this.myadministradror.userInfo.get(userPosition).setUserLifes(userLifes+1);
-            }
-        }
         
-    
 
     /**
      * Creates new form GameControl
@@ -87,7 +80,7 @@ public class GameControl extends javax.swing.JFrame {
         this.jblLifes.setText("Vidas: "+this.myadministradror.userInfo.get(userPosition).getUserLifes());
         this.jblNumberQuestion.setText(this.numberQuestion+"/15");
         this.setButtons(question, myadministradror.setType());
-        this.setSize(question);
+        this.setSizeQuestion(question);
         this.setAlignment(question, btnOption1, btnOption2, btnOption3);
     }
     public void verifyAnswer (JButton button){
@@ -117,8 +110,9 @@ public class GameControl extends javax.swing.JFrame {
             this.btnContinue.setVisible(true);            
         }
     }
-    public void gameOver (int userposition){
-        if (this.numberQuestion > 15 || this.myadministradror.userInfo.get(userposition).getUserLifes()== 0){
+
+    public void gameOver(int userposition) {
+        if (this.numberQuestion > 15) {
             this.jblQuestion.setVisible(false);
             this.btnOption1.setVisible(false);
             this.btnOption2.setVisible(false);
@@ -127,7 +121,22 @@ public class GameControl extends javax.swing.JFrame {
             this.btnNextQuestion.setVisible(false);
             this.jblContinueMessage.setVisible(true);
         }
-    } 
+        if (this.myadministradror.userInfo.get(userposition).getUserLifes() == 0) {
+            this.jblQuestion.setVisible(false);
+            this.btnOption1.setVisible(false);
+            this.btnOption2.setVisible(false);
+            this.btnOption3.setVisible(false);
+            this.btnContinue.setVisible(false);
+            this.btnNextQuestion.setVisible(false);
+            this.jblContinueMessage.setVisible(true);
+            this.myadministradror.userInfo.get(userposition).setUserPoints(000);
+            MainMenu mainMenu = new MainMenu(this.myadministradror, this.userPosition);
+            mainMenu.setVisible(true);
+            this.dispose();
+            
+        }
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

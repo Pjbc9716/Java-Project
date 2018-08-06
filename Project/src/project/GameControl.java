@@ -121,10 +121,9 @@ public class GameControl extends javax.swing.JFrame {
             this.btnNextQuestion.setVisible(false);
             this.jblContinueMessage.setVisible(true);
             this.myadministradror.userInfo.get(userposition).setUserPoints(000);
+            this.dispose();
             MainMenu mainMenu = new MainMenu(this.myadministradror, this.userPosition);
             mainMenu.setVisible(true);
-            this.dispose();
-            
         }
         
     }

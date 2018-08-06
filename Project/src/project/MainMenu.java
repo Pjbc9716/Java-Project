@@ -85,6 +85,11 @@ public class MainMenu extends javax.swing.JFrame {
                 btnProfileMouseClicked(evt);
             }
         });
+        btnProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfileActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 300, 60));
 
         btnExit.setBackground(new java.awt.Color(51, 153, 255));
@@ -121,6 +126,10 @@ public class MainMenu extends javax.swing.JFrame {
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         System.exit(0);
     }//GEN-LAST:event_btnExitMouseClicked
+
+    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProfileActionPerformed
 
     /**
      * @param args the command line arguments

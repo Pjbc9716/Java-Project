@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package project;
 
 import project.logic.Administrador;
 
-/**
- *
- * @author PJ129
- */
+
 public class MainMenu extends javax.swing.JFrame {
 
     /**
@@ -119,12 +112,14 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStartGameMouseClicked
 
     private void btnProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMouseClicked
-        // TODO add your handling code here:
+        UserProfile userProfile = new UserProfile();
+        userProfile.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_btnProfileMouseClicked
 
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnExitMouseClicked
 
     /**

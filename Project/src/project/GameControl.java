@@ -1,18 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package project;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import project.logic.Administrador;
 
-/**
- *
- * @author PJ129
- */
+
 public class GameControl extends javax.swing.JFrame {
 
     public void setButtons(int question, int type) {
@@ -57,9 +50,7 @@ public class GameControl extends javax.swing.JFrame {
     }
         
 
-    /**
-     * Creates new form GameControl
-     */
+
     Administrador myadministradror;
     JButton correctButton;
     int userPosition;

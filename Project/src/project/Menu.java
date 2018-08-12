@@ -20,6 +20,7 @@ public class Menu extends javax.swing.JFrame {
     Administrador myList;
     public Menu(Administrador myAdministrador) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.myList = myAdministrador;
     }
    

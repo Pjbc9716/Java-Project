@@ -13,6 +13,7 @@ public class LogIn extends javax.swing.JFrame {
     Administrador myadiministrador;
     public LogIn(Administrador myList) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.myadiministrador = myList;
     }
 

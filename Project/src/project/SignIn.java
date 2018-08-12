@@ -21,6 +21,7 @@ public class SignIn extends javax.swing.JFrame {
     Administrador myadministrador;
     public SignIn(Administrador myList) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.myadministrador = myList;
         jblHasNumberImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/X.png"))); 
         jblHasSignImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/X.png"))); 
@@ -189,7 +190,7 @@ public class SignIn extends javax.swing.JFrame {
         int age = Integer.parseInt((String) jcbAge.getSelectedItem());
         String country = (String) jcbCountry.getSelectedItem();
         if (correctNickname && correctPassword && myadministrador.verifyCountry(country) && passwordMatches) {
-            myadministrador.userInfo.add(new User(nickname, password, country, age));
+            myadministrador.userInfo.add(new User(nickname,password,age,country,"000"));
             JOptionPane.showMessageDialog(null, "Usuari@ Cread@!");
             this.dispose();
             Menu myMenu = new Menu(myadministrador);

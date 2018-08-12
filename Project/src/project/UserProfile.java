@@ -5,6 +5,8 @@
  */
 package project;
 
+import project.logic.Administrador;
+
 /**
  *
  * @author PJ129
@@ -14,8 +16,13 @@ public class UserProfile extends javax.swing.JFrame {
     /**
      * Creates new form UserProfile
      */
-    public UserProfile() {
+    Administrador myadministrador;
+    int userPosition=0;
+    public UserProfile(Administrador myList, int userPosition) {
         initComponents();
+        this.myadministrador = myList;
+        this.userPosition = userPosition;
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -70,7 +77,9 @@ public class UserProfile extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserProfile().setVisible(true);
+                Administrador myadministrador = new Administrador();
+                int userposition = 0;
+                new UserProfile(myadministrador, userposition).setVisible(true);
             }
         });
     }

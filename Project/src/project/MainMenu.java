@@ -13,6 +13,7 @@ public class MainMenu extends javax.swing.JFrame {
     int userPosition;
     public MainMenu(Administrador myList, int position) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.myadministrador = myList;
         this.userPosition = position;
         System.out.println(position);
@@ -117,7 +118,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStartGameMouseClicked
 
     private void btnProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMouseClicked
-        UserProfile userProfile = new UserProfile();
+        UserProfile userProfile = new UserProfile(this.myadministrador, this.userPosition);
         userProfile.setVisible(true);
         this.dispose();
 

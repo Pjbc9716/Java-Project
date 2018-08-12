@@ -4,6 +4,7 @@ package project;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import project.logic.Administrador;
+import javax.swing.Timer;
 
 
 public class GameControl extends javax.swing.JFrame {
@@ -57,6 +58,7 @@ public class GameControl extends javax.swing.JFrame {
     int numberQuestion;
     public GameControl(Administrador myList, int userPosition, int numberQuestion) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.jblContinueMessage.setVisible(false);
         this.btnContinue.setVisible(false);
         this.jblResult.setVisible(false);
@@ -73,6 +75,9 @@ public class GameControl extends javax.swing.JFrame {
         this.setButtons(question, myadministradror.setType());
         this.setSizeQuestion(question);
         this.setAlignment(question, btnOption1, btnOption2, btnOption3);
+        this.jblResult.setVisible(true);
+        this.jblResult.setText("00:00");
+        this.jblResult.setForeground(new java.awt.Color(255, 255, 255));
     }
     public void verifyAnswer (JButton button){
         this.numberQuestion++;

@@ -55,6 +55,7 @@ public class SignIn extends javax.swing.JFrame {
         jblLengthImage = new javax.swing.JLabel();
         jblHasSignImage = new javax.swing.JLabel();
         jblHasNumberImage = new javax.swing.JLabel();
+        btnReturn = new javax.swing.JButton();
         jblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -143,9 +144,21 @@ public class SignIn extends javax.swing.JFrame {
 
         jblHasSignImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Check.png"))); // NOI18N
         getContentPane().add(jblHasSignImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
-
-        jblHasNumberImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\PJ129\\Downloads\\Check.png")); // NOI18N
         getContentPane().add(jblHasNumberImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, -1, -1));
+
+        btnReturn.setBackground(new java.awt.Color(0, 51, 153));
+        btnReturn.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btnReturn.setForeground(new java.awt.Color(255, 255, 255));
+        btnReturn.setText("Regresar");
+        btnReturn.setMaximumSize(new java.awt.Dimension(127, 31));
+        btnReturn.setMinimumSize(new java.awt.Dimension(127, 31));
+        btnReturn.setPreferredSize(new java.awt.Dimension(127, 31));
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, -1, -1));
 
         jblBackground.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/CoolBackground.jpg"))); // NOI18N
@@ -190,7 +203,7 @@ public class SignIn extends javax.swing.JFrame {
         int age = Integer.parseInt((String) jcbAge.getSelectedItem());
         String country = (String) jcbCountry.getSelectedItem();
         if (correctNickname && correctPassword && myadministrador.verifyCountry(country) && passwordMatches) {
-            myadministrador.userInfo.add(new User(nickname,password,age,country,"000"));
+            myadministrador.userInfo.add (new User(nickname,password,country,age));
             JOptionPane.showMessageDialog(null, "Usuari@ Cread@!");
             this.dispose();
             Menu myMenu = new Menu(myadministrador);
@@ -207,6 +220,13 @@ public class SignIn extends javax.swing.JFrame {
             System.out.println(myadministrador.userInfo.get(i).toString());
         }
     }//GEN-LAST:event_btnRegisterMouseClicked
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        Menu backMenu = new Menu(myadministrador);
+        backMenu.setVisible(true);
+        backMenu.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,6 +267,7 @@ public class SignIn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Length;
     private javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JLabel hasNumber;
     private javax.swing.JLabel hasSign;
     private javax.swing.JLabel jLabel1;

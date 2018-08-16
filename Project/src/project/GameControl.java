@@ -56,8 +56,37 @@ public class GameControl extends javax.swing.JFrame {
     JButton correctButton;
     int userPosition;
     int numberQuestion;
+    
+    Thread hilo = new Thread(){
+        public void run(){
+            try{
+                while(true){
+                    if(cen == 99){
+                        cen = 0;
+                        seg++;
+                    }
+                    if(seg == 59){
+                        seg = 0;
+                        min++;
+                    }
+                    cen++;
+                    
+                    jlbTimer.setText(min + ":" + seg + ":" + cen);
+                    hilo.sleep(10);
+                }
+            }catch(java.lang.InterruptedException ie){
+                System.out.println(ie.getMessage());
+            }
+        }
+    };
+    
+    int min = 0;
+    int seg = 0;
+    int cen = 0;
+    
     public GameControl(Administrador myList, int userPosition, int numberQuestion) {
         initComponents();
+        hilo.start();
         this.setLocationRelativeTo(null);
         this.jblContinueMessage.setVisible(false);
         this.btnContinue.setVisible(false);
@@ -153,8 +182,9 @@ public class GameControl extends javax.swing.JFrame {
         jblResult = new javax.swing.JLabel();
         jblLifes = new javax.swing.JLabel();
         jblPoints = new javax.swing.JLabel();
-        jblBackground = new javax.swing.JLabel();
         jblContinueMessage = new javax.swing.JLabel();
+        jlbTimer = new javax.swing.JLabel();
+        jblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -291,15 +321,20 @@ public class GameControl extends javax.swing.JFrame {
         jblPoints.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jblPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, 60));
 
-        jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/BigBackground.png"))); // NOI18N
-        getContentPane().add(jblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         jblContinueMessage.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
         jblContinueMessage.setForeground(new java.awt.Color(255, 255, 255));
         jblContinueMessage.setText("Fin de la Partida");
         jblContinueMessage.setFocusable(false);
         jblContinueMessage.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         getContentPane().add(jblContinueMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, 60));
+
+        jlbTimer.setBackground(new java.awt.Color(153, 255, 255));
+        jlbTimer.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jlbTimer.setForeground(new java.awt.Color(102, 255, 255));
+        getContentPane().add(jlbTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 160, 60));
+
+        jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/BigBackground.png"))); // NOI18N
+        getContentPane().add(jblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -399,5 +434,6 @@ this.verifyAnswer(btnOption3);
     private javax.swing.JLabel jblPoints;
     private javax.swing.JLabel jblQuestion;
     private javax.swing.JLabel jblResult;
+    private javax.swing.JLabel jlbTimer;
     // End of variables declaration//GEN-END:variables
 }

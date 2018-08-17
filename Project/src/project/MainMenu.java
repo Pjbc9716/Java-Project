@@ -85,6 +85,11 @@ public class MainMenu extends javax.swing.JFrame {
                 btnExitMouseClicked(evt);
             }
         });
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 300, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/CoolBackground.jpg"))); // NOI18N
@@ -101,8 +106,14 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStartGameMouseClicked
 
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
-        System.exit(0);
+        Menu menu = new Menu(this.myadministrador);
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnExitMouseClicked
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments

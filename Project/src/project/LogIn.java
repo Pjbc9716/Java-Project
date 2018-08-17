@@ -31,6 +31,7 @@ public class LogIn extends javax.swing.JFrame {
         jblPassword = new javax.swing.JLabel();
         txtNickname = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        btnReturn = new javax.swing.JButton();
         btnLogIn = new javax.swing.JButton();
         jblBackground = new javax.swing.JLabel();
 
@@ -57,6 +58,22 @@ public class LogIn extends javax.swing.JFrame {
 
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 270, 40));
+
+        btnReturn.setBackground(new java.awt.Color(0, 51, 153));
+        btnReturn.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btnReturn.setForeground(new java.awt.Color(255, 255, 255));
+        btnReturn.setText("Regresar");
+        btnReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReturnMouseClicked(evt);
+            }
+        });
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 180, 40));
 
         btnLogIn.setBackground(new java.awt.Color(0, 51, 153));
         btnLogIn.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -87,6 +104,17 @@ public class LogIn extends javax.swing.JFrame {
             myMainMenu.setVisible(true);
         }
     }//GEN-LAST:event_btnLogInMouseClicked
+
+    private void btnReturnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReturnMouseClicked
+        // TODO add your handling code here:
+        Menu menu = new Menu(this.myadiministrador);
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnReturnMouseClicked
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,6 +154,7 @@ public class LogIn extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogIn;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel jblBackground;

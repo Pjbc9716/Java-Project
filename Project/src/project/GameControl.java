@@ -69,7 +69,7 @@ public class GameControl extends javax.swing.JFrame implements Runnable {
         this.myadministradror = myList;
         this.userPosition = userPosition;
         this.gameOver(userPosition);
-        int question = this.myadministradror.selectQuestion();
+        int question = this.myadministradror.getQuestion();
         jblQuestion.setText(this.myadministradror.questionList.get(question).getQuestion());
         this.jblPoints.setText("Puntos: " + this.myadministradror.userInfo.get(userPosition).getUserPoints());
         this.jblLifes.setText("Vidas: " + this.myadministradror.userInfo.get(userPosition).getUserLifes());

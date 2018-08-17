@@ -43,6 +43,7 @@ public class SignIn extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
         txtNickname = new javax.swing.JTextField();
         jPassword = new javax.swing.JPasswordField();
         jPasswordVerify = new javax.swing.JPasswordField();
@@ -89,6 +90,22 @@ public class SignIn extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Pais:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, -1, -1));
+
+        btnBack.setBackground(new java.awt.Color(0, 51, 153));
+        btnBack.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Regresar");
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBackMouseClicked(evt);
+            }
+        });
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, -1, -1));
 
         txtNickname.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         getContentPane().add(txtNickname, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 310, -1));
@@ -208,6 +225,17 @@ public class SignIn extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRegisterMouseClicked
 
+    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
+        // TODO add your handling code here:
+        Menu menu = new Menu(this.myadministrador);
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBackMouseClicked
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -246,6 +274,7 @@ public class SignIn extends javax.swing.JFrame {
     boolean correctPassword;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Length;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel hasNumber;
     private javax.swing.JLabel hasSign;

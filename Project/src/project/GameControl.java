@@ -1,13 +1,15 @@
-
 package project;
 
+
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import project.logic.Administrador;
-import javax.swing.Timer;
 
 
-public class GameControl extends javax.swing.JFrame {
+public class GameControl extends javax.swing.JFrame implements Runnable {
+
+    Thread hilo;
 
     public void setButtons(int question, int type) {
         switch (type) {
@@ -41,56 +43,27 @@ public class GameControl extends javax.swing.JFrame {
             button2.setHorizontalAlignment(0);
             button3.setHorizontalAlignment(0);
         }
-    
+
     }
-    public void setSizeQuestion (int question){
-        if (this.myadministradror.questionList.get(question).getQuestion().length()>40){
+
+    public void setSizeQuestion(int question) {
+        if (this.myadministradror.questionList.get(question).getQuestion().length() > 40) {
             jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/GiantBackground.png")));
-            this.setSize(930, 800);            
+            this.setSize(930, 800);
         }
     }
-        
-
 
     Administrador myadministradror;
-    JButton correctButton;
-    int userPosition;
-    int numberQuestion;
-    
-    Thread hilo = new Thread(){
-        public void run(){
-            try{
-                while(true){
-                    if(cen == 99){
-                        cen = 0;
-                        seg++;
-                    }
-                    if(seg == 59){
-                        seg = 0;
-                        min++;
-                    }
-                    cen++;
-                    
-                    jlbTimer.setText(min + ":" + seg + ":" + cen);
-                    hilo.sleep(10);
-                }
-            }catch(java.lang.InterruptedException ie){
-                System.out.println(ie.getMessage());
-            }
-        }
-    };
-    
-    int min = 0;
-    int seg = 0;
-    int cen = 0;
-    
+    private JButton correctButton;
+    private int userPosition;
+    private int numberQuestion;
+
     public GameControl(Administrador myList, int userPosition, int numberQuestion) {
         initComponents();
-        hilo.start();
         this.setLocationRelativeTo(null);
+        this.iniciarCronometro();
         this.jblContinueMessage.setVisible(false);
         this.btnContinue.setVisible(false);
-        this.jblResult.setVisible(false);
         this.setPreferredSize(new java.awt.Dimension(400, 400));
         this.numberQuestion = numberQuestion;
         this.myadministradror = myList;
@@ -98,20 +71,22 @@ public class GameControl extends javax.swing.JFrame {
         this.gameOver(userPosition);
         int question = this.myadministradror.selectQuestion();
         jblQuestion.setText(this.myadministradror.questionList.get(question).getQuestion());
-        this.jblPoints.setText("Puntos: "+this.myadministradror.userInfo.get(userPosition).getUserPoints());
-        this.jblLifes.setText("Vidas: "+this.myadministradror.userInfo.get(userPosition).getUserLifes());
-        this.jblNumberQuestion.setText(this.numberQuestion+"/15");
+        this.jblPoints.setText("Puntos: " + this.myadministradror.userInfo.get(userPosition).getUserPoints());
+        this.jblLifes.setText("Vidas: " + this.myadministradror.userInfo.get(userPosition).getUserLifes());
+        this.jblNumberQuestion.setText(this.numberQuestion + "/15");
         this.setButtons(question, myadministradror.setType());
         this.setSizeQuestion(question);
         this.setAlignment(question, btnOption1, btnOption2, btnOption3);
-        this.jblResult.setVisible(true);
-        this.jblResult.setText("00:00");
-        this.jblResult.setForeground(new java.awt.Color(255, 255, 255));
+
+
     }
-    public void verifyAnswer (JButton button){
+
+    public void verifyAnswer(JButton button) {
         this.numberQuestion++;
-        if (button.equals(correctButton)){
-            this.jblResult.setVisible(true);
+        if (button.equals(correctButton)) {
+            hilo.interrupt();
+            this.jblResult.setText("Correcta");
+            this.jblResult.setForeground(new java.awt.Color(0, 204, 0));
             int points = this.myadministradror.userInfo.get(this.userPosition).getUserPoints() + 100;
             this.myadministradror.userInfo.get(this.userPosition).setUserPoints(points);
             this.jblPoints.setText("Puntos: " + this.myadministradror.userInfo.get(this.userPosition).getUserPoints());
@@ -120,9 +95,11 @@ public class GameControl extends javax.swing.JFrame {
             this.btnOption2.setVisible(false);
             this.btnOption3.setVisible(false);
             this.btnContinue.setVisible(true);
+            
 
-        }else{
-            this.jblResult.setText("Mala");
+        } else {
+            hilo.interrupt();
+            this.jblResult.setText("Incorrecto");
             this.jblResult.setForeground(new java.awt.Color(255, 51, 51));
             this.jblResult.setVisible(true);
             int lifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes() - 1;
@@ -132,7 +109,7 @@ public class GameControl extends javax.swing.JFrame {
             this.btnNextQuestion.setVisible(false);
             this.btnOption2.setVisible(false);
             this.btnOption3.setVisible(false);
-            this.btnContinue.setVisible(true);            
+            this.btnContinue.setVisible(true);
         }
     }
 
@@ -158,9 +135,47 @@ public class GameControl extends javax.swing.JFrame {
             this.dispose();
             MainMenu mainMenu = new MainMenu(this.myadministradror, this.userPosition);
             mainMenu.setVisible(true);
+
         }
-        
     }
+       public void run() {
+        jblResult.setVisible(true);
+        jblResult.setText("0:00");
+        jblResult.setForeground(new java.awt.Color(255, 255, 255));
+        Integer minutos = 0, segundos = 0;
+        String min = "", seg = "";
+        try {
+            while (minutos < 3) {
+                Thread.sleep(1000);
+                segundos++;
+                if (segundos == 60) {
+                    segundos = 0;
+                    minutos++;
+                }
+                min = minutos.toString();
+                if (segundos < 10) {
+                    seg = ("0" + segundos.toString());
+                } else {
+                    seg = segundos.toString();
+                }
+                jblResult.setText(min + ":" + seg);
+
+                if (minutos == 1 && segundos == 30) {
+
+                    jblResult.setText("Game over");
+                }
+
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    public void iniciarCronometro (){
+        hilo = new Thread (this);
+        hilo.start();
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -182,9 +197,8 @@ public class GameControl extends javax.swing.JFrame {
         jblResult = new javax.swing.JLabel();
         jblLifes = new javax.swing.JLabel();
         jblPoints = new javax.swing.JLabel();
-        jblContinueMessage = new javax.swing.JLabel();
-        jlbTimer = new javax.swing.JLabel();
         jblBackground = new javax.swing.JLabel();
+        jblContinueMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -321,20 +335,15 @@ public class GameControl extends javax.swing.JFrame {
         jblPoints.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jblPoints, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, 60));
 
+        jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/BigBackground.png"))); // NOI18N
+        getContentPane().add(jblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         jblContinueMessage.setFont(new java.awt.Font("Verdana", 3, 24)); // NOI18N
         jblContinueMessage.setForeground(new java.awt.Color(255, 255, 255));
         jblContinueMessage.setText("Fin de la Partida");
         jblContinueMessage.setFocusable(false);
         jblContinueMessage.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         getContentPane().add(jblContinueMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, 60));
-
-        jlbTimer.setBackground(new java.awt.Color(153, 255, 255));
-        jlbTimer.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jlbTimer.setForeground(new java.awt.Color(102, 255, 255));
-        getContentPane().add(jlbTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 160, 60));
-
-        jblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/BigBackground.png"))); // NOI18N
-        getContentPane().add(jblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -361,6 +370,12 @@ this.verifyAnswer(btnOption3);
 
     private void btnNextQuestionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextQuestionMouseClicked
         // TODO add your handling code here:
+        this.numberQuestion++;
+        int newLifes = this.myadministradror.userInfo.get(this.userPosition).getUserLifes()-1;
+        this.myadministradror.userInfo.get(this.userPosition).setUserLifes(newLifes);
+        GameControl gameControl = new GameControl(this.myadministradror, this.userPosition, this.numberQuestion);
+        gameControl.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnNextQuestionMouseClicked
 
     private void btnNextQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextQuestionActionPerformed
@@ -434,6 +449,7 @@ this.verifyAnswer(btnOption3);
     private javax.swing.JLabel jblPoints;
     private javax.swing.JLabel jblQuestion;
     private javax.swing.JLabel jblResult;
-    private javax.swing.JLabel jlbTimer;
     // End of variables declaration//GEN-END:variables
+
+    
 }

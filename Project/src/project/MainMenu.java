@@ -37,7 +37,6 @@ public class MainMenu extends javax.swing.JFrame {
         jblNickname = new javax.swing.JLabel();
         jblUserLifes = new javax.swing.JLabel();
         btnStartGame = new javax.swing.JButton();
-        btnProfile = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -75,23 +74,7 @@ public class MainMenu extends javax.swing.JFrame {
                 btnStartGameMouseClicked(evt);
             }
         });
-        getContentPane().add(btnStartGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 300, 60));
-
-        btnProfile.setBackground(new java.awt.Color(51, 153, 255));
-        btnProfile.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
-        btnProfile.setForeground(new java.awt.Color(255, 255, 255));
-        btnProfile.setText("Ver Perfil");
-        btnProfile.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnProfileMouseClicked(evt);
-            }
-        });
-        btnProfile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProfileActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 440, 300, 60));
+        getContentPane().add(btnStartGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, 300, 60));
 
         btnExit.setBackground(new java.awt.Color(51, 153, 255));
         btnExit.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
@@ -117,20 +100,9 @@ public class MainMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnStartGameMouseClicked
 
-    private void btnProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfileMouseClicked
-        UserProfile userProfile = new UserProfile(this.myadministrador, this.userPosition);
-        userProfile.setVisible(true);
-        this.dispose();
-
-    }//GEN-LAST:event_btnProfileMouseClicked
-
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         System.exit(0);
     }//GEN-LAST:event_btnExitMouseClicked
-
-    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnProfileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,7 +143,6 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnStartGame;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

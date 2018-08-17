@@ -6,7 +6,9 @@
 package project.logic;
 
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import project.models.Question;
 import project.models.User;
 
@@ -15,9 +17,9 @@ import project.models.User;
  * @author PJ129
  */
 public class Administrador {
-
     public ArrayList<User> userInfo = new ArrayList<>();
     public ArrayList<Question> questionList = new ArrayList<>();
+    
     public void fillUserList() {
         User myUser = new User("Administrador", "TG2018JAVA", "C.R.C", 00);
         userInfo.add(myUser);
@@ -185,4 +187,5 @@ public class Administrador {
         System.out.println(type);
         return type;
     }
+
 }

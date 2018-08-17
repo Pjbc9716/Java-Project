@@ -31,7 +31,6 @@ public class LogIn extends javax.swing.JFrame {
         jblPassword = new javax.swing.JLabel();
         txtNickname = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jblForgetPassword = new javax.swing.JLabel();
         btnLogIn = new javax.swing.JButton();
         jblBackground = new javax.swing.JLabel();
 
@@ -58,16 +57,6 @@ public class LogIn extends javax.swing.JFrame {
 
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 270, 40));
-
-        jblForgetPassword.setFont(new java.awt.Font("Calibri", 2, 24)); // NOI18N
-        jblForgetPassword.setForeground(new java.awt.Color(255, 0, 51));
-        jblForgetPassword.setText("Olvide la contraseña");
-        jblForgetPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jblForgetPasswordMouseClicked(evt);
-            }
-        });
-        getContentPane().add(jblForgetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, -1, -1));
 
         btnLogIn.setBackground(new java.awt.Color(0, 51, 153));
         btnLogIn.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -98,10 +87,6 @@ public class LogIn extends javax.swing.JFrame {
             myMainMenu.setVisible(true);
         }
     }//GEN-LAST:event_btnLogInMouseClicked
-
-    private void jblForgetPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jblForgetPasswordMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jblForgetPasswordMouseClicked
 
     /**
      * @param args the command line arguments
@@ -144,7 +129,6 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel jblBackground;
-    private javax.swing.JLabel jblForgetPassword;
     private javax.swing.JLabel jblNickname;
     private javax.swing.JLabel jblPassword;
     private javax.swing.JTextField txtNickname;

@@ -121,8 +121,13 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         // TODO add your handling code here:
+        try{
         this.myadministrador.stopMusic(music);
+        this.myadministrador.database.close();
         this.dispose();
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_btnExitMouseClicked
 
     /**

@@ -131,9 +131,6 @@ public class MainMenu extends javax.swing.JFrame {
         Menu menu = new Menu(this.myadministrador);
         menu.setVisible(true);
         this.myadministrador.stopMusic(music);
-        for (int i = 0; i < this.myadministrador.questionList.size(); i++) {
-            System.out.println(i + " " + this.myadministrador.questionList.get(i).getAlreadyAnswered());
-        }
         this.dispose();
     }//GEN-LAST:event_btnExitMouseClicked
 
@@ -145,6 +142,7 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         Ranking ranking = new Ranking(this.myadministrador, this.user);
         ranking.setVisible(true);
+        this.myadministrador.stopMusic(music);
         this.dispose();
     }//GEN-LAST:event_btnRankingMouseClicked
 

@@ -38,7 +38,7 @@ public class Administrador {
     InputStream serviceAccount;
     GoogleCredentials credentials;
     FirebaseOptions options;
-    Firestore database;
+    public Firestore database;
     
     public Administrador() {
         try {
@@ -83,7 +83,6 @@ public class Administrador {
                 String points = Long.toString(user.getUserPoints());
                 String information = (position + 1) + " " + user.getUserNickname() + "...." + user.getUserCountry() + "...." + points;
                 highestPoints[position] = information;
-                System.out.println(highestPoints[position]);
                 position++;
             }
         } catch (Exception ex) {
@@ -142,19 +141,15 @@ public class Administrador {
             boolean nicknameRegistered = false;
             boolean correctPassword = false;
             DocumentReference documentRef = database.collection("User").document("user_" + nickname + "_2018");
-            System.out.println("user_" + nickname + "_2018");
             ApiFuture<DocumentSnapshot> future = documentRef.get();
             DocumentSnapshot document = future.get();
             User user = null;
             nicknameRegistered = document.exists();
-            System.out.println(nicknameRegistered);
             if (nicknameRegistered) {
                 user = document.toObject(User.class);
                 correctPassword = user.getUserPassword().equals(password);
-                System.out.println(correctPassword);
             }
             correctInfo = nicknameRegistered && correctPassword;
-            System.out.println(correctInfo);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -185,9 +180,9 @@ public class Administrador {
                 }
             }
             
-            questionSelected = (int) (Math.random() * 67);
+            questionSelected = (int) (Math.random() * 66);
             while (questionList.get(questionSelected).getAlreadyAnswered().equals("YES")) {
-                questionSelected = (int) (Math.random() * 67);
+                questionSelected = (int) (Math.random() * 66);
             }
             questionList.get(questionSelected).setAlreadyAnswered("YES");
             
@@ -199,7 +194,6 @@ public class Administrador {
     
     public int setType() {
         int type = (int) (Math.random() * (4 - 1) + 1);
-        System.out.println(type);
         return type;
     }
     

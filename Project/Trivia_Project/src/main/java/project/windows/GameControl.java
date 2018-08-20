@@ -129,8 +129,6 @@ public class GameControl extends javax.swing.JFrame implements Runnable {
             this.jblResult.setVisible(false);
             hilo.interrupt();
             this.btnBacktoMainMenu.setVisible(true);
-            MainMenu mainMenu = new MainMenu(this.myadministradror, this.user);
-            mainMenu.setVisible(true);
 
         }
 
@@ -382,6 +380,7 @@ public class GameControl extends javax.swing.JFrame implements Runnable {
         MainMenu mainMenu = new MainMenu(this.myadministradror, this.user);
         mainMenu.setVisible(true);
         this.myadministradror.cleanQuestionList();
+        this.myadministradror.stopMusic(music);
         this.dispose();
     }//GEN-LAST:event_btnBacktoMainMenuMouseClicked
 

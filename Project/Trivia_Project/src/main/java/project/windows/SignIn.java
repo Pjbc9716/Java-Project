@@ -16,19 +16,18 @@ import project.models.User;
  * @author PJ129
  */
 public class SignIn extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form SignIn
      */
     Administrador myadministrador;
     AudioClip music;
-
     public SignIn(Administrador myList) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.myadministrador = myList;
-        jblHasNumberImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/X.png")));        
-        jblHasSignImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/X.png")));        
+        jblHasNumberImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/X.png"))); 
+        jblHasSignImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/X.png"))); 
         jblLengthImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/X.png")));
         music = this.myadministrador.playMusic();
     }
@@ -181,20 +180,20 @@ public class SignIn extends javax.swing.JFrame {
         // TODO add your handling code here:
         char[] passwordChar = jPassword.getPassword();
         String password = new String(passwordChar);
-        if (myadministrador.verifyPasswordLength(password)) {
-            jblLengthImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Check.png")));            
+        if (myadministrador.verifyPasswordLength(password)){
+            jblLengthImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Check.png"))); 
         } else {
             jblLengthImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/X.png")));
-            
+
         }
-        if (myadministrador.verifyPasswordNumber(password)) {
+        if(myadministrador.verifyPasswordNumber(password)){
             jblHasNumberImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Check.png")));
-        } else {
+        }else{
             jblHasNumberImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/X.png")));
         }
-        if (myadministrador.verifyPasswordSign(password)) {
+        if (myadministrador.verifyPasswordSign(password)){
             jblHasSignImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Check.png")));
-        } else {
+        }else{
             jblHasSignImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/X.png")));
         }
         correctPassword = myadministrador.verifyPasswordLength(password) && myadministrador.verifyPasswordNumber(password) && myadministrador.verifyPasswordSign(password);
@@ -217,19 +216,16 @@ public class SignIn extends javax.swing.JFrame {
             Menu myMenu = new Menu(this.myadministrador);
             myMenu.setVisible(true);
             
-        } else {
-            if (!correctPassword) {
-                JOptionPane.showMessageDialog(null, "Password incorrecta, por favor seguir todos los parametros");
-            }
-            if (!myadministrador.verifyCountry(country)) {
-                JOptionPane.showMessageDialog(null, "Por favor seleccione un pais");
-            }
-            if (!passwordMatches) {
-                JOptionPane.showMessageDialog(null, "Los password no verifica, por favor verifique los password");
-            }
-            if (!myadministrador.newNickname(nickname)) {
-                JOptionPane.showMessageDialog(null, "El nombre del usuario ya esta registrado, intento uno nuevo");
-            }
+        }else{
+         if (!correctPassword) {
+            JOptionPane.showMessageDialog(null, "Password incorrecta, por favor seguir todos los parametros");
+        }if (!myadministrador.verifyCountry(country)) {
+            JOptionPane.showMessageDialog(null, "Por favor seleccione un pais");
+        }if (!passwordMatches) {
+            JOptionPane.showMessageDialog(null, "Los password no verifica, por favor verifique los password");
+        }if (!myadministrador.newNickname(nickname)){
+            JOptionPane.showMessageDialog(null, "El nombre del usuario ya esta registrado, intento uno nuevo");
+        }
         }
     }//GEN-LAST:event_btnRegisterMouseClicked
 
@@ -275,7 +271,7 @@ public class SignIn extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Administrador myList = new Administrador();
+                Administrador myList = new Administrador ();
                 new SignIn(myList).setVisible(true);
             }
         });

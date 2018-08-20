@@ -42,6 +42,9 @@ public class Administrador {
     
     public Administrador() {
         try {
+            //El objeto "serviceAccount" de la clase de FileInputStream, en el string se debe modificar conforme
+            //a donde se ubique el json en su computador, unicamente "\\Trivia_Project\\src\\main\\java\\project\\database\\trivia-game.json"
+            // se queda igual, antes de eso debe de cambiarlo conforme a su computador
             this.serviceAccount = new FileInputStream("C:\\Users\\PJ129\\Documents\\NetBeansProjects\\Trivia_Project\\src\\main\\java\\project\\database\\trivia-game.json");
             this.credentials = GoogleCredentials.fromStream(serviceAccount);
             this.options = new FirebaseOptions.Builder()

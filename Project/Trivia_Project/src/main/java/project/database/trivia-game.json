@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "trivia-game-c86ae",
+  "private_key_id": "3810946ce985ad38aa81d0f807caa09cb9227d1f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCpekQXF6e7sF6m\nz9Ae4uS4wW1iwxzbjhqDQzukXxyWRRqJ6JSliFPMEM7sKUjhXt3Yt2dzxINxvYN0\n/ZCjGvlUmCZYIdsOxCqxuAhQizQeS+FSvnJHer+IeoabwNj0GZ0sVyF7bHexnD4z\nAfSccGtEaw2OAuUH4Me7LiFJc1vzYCWP/fMQHFKG7hFwnfYNJx5GJ1aPJeP256WI\nJZAj6P85KhcLhW2BySAAa5bpr1jdHmVFsSQNRzngsl+Q4hoJjgiSyVeWdPMTbTTi\n3Q7gnaTR4eHwTk1IsKznQa3q86S8bditOHkHnc/JowgVJMcL3kE1+Aj234ECTG0f\ncWszTmUTAgMBAAECggEABlZavHYJoP/etsjcJMyrEY7+FjWz/54MpMCf7aztqzrW\nt0h1PfA6mV/09OAzw4o9h5mzhfxXs/NTupZqLIc0eXLVDfHn3SqP/Ujaf0/2ZuLD\nW9vy0nRwPBMJakKVekYbNbMJ0R97bpxxbrGRq0OcC8/6/I/2bu/pDvAkTKadu9Na\nmNX5S4SbH24gTiqg8Cy1Pq+JCDo75pTqj9iwZDpz6jN6Jn2L2TplD+ShcAoGpNkM\nfUivKaEVCYf6M2KCWI8/qTjQvm+KTafesWlS1oc0rTRik/tWQ5KnI1rzXvl0EghG\nefH65xST911Zy1eqhVeuU+zGKCGfmZ2zSWhmeZEN1QKBgQDfYgVJXe28evr2O0rq\nSyd95Gp0WyXIQqweb3o5AnE9KS5bNuQ5w5Z38QAh6U1FOi5H982Wr7usjItNzV0Q\nXMXxQj191EYU7oymM2cG1Jryt7HGS2p4Ch2Jcwor5ILnfl3Pxwr6Sk2TiCuEjDi8\noQHZtSqiqJzG2Cgv2uyxc87WpwKBgQDCOUh+62aA6WJGQOd7xuaE54R1aG9kXKjx\nzLTWJKuQXAz6YnJaRp2BkMx16LQsJ08YYdScudeH87W9pCL7sxtLccZ3DXptxE5V\nUjJhgxXq9EERikLNCeO/GiGRzoqgVInFFHtCxZNPbjnIRfc9aqNuoBfV4aSKHeNZ\nNwfeM493tQKBgQCWvM5Uc825IkO3ZMtozs4XZctwORGF0XfUEeWoEr3XR7LAWoon\ncJRY24f7WjOKQ3h3mABjbrJ1/WEDX1EteW0ZIFneTx/7f/3pKUaclVr57ntIFBwE\nZM8JsVdrxweOrvce/nGp8/nlVD4Jc5XVs9BL2LSsjps8kyCLKnAOTteEgQKBgHLr\n5iODMiGw9n9PRCkPJbMaMlwuMUsXMLfyQkY7aHCApwU4XyVfhy70+KYDzSgbEkgB\nCwa5R/ifkbfmePSpo8reRWqIRRrR/u+pNTpRkBR39lBkmOYtpd6bnaViqs/3dZVx\nawW1Vla3h+Ui0Qo8IPwCKlhZrTw0NyPA1hz6MTfJAoGABvd746CZmgozV+52XVQy\nQmeTGy8dq/R66JKBtt6Rsb1JtW662XVBFdrn5yw7hQkWxzqLVUGYKrENqYauz6tv\nxYHY0hn505bawlO98oTji+8duThcup2BHopfhQNDnoiYFRFurGFNPkabi4NuGXWD\nh5eFq8+3BZ+e5hrHmBNHjMg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-tdonz@trivia-game-c86ae.iam.gserviceaccount.com",
+  "client_id": "112811611803950411371",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-tdonz%40trivia-game-c86ae.iam.gserviceaccount.com"
+}

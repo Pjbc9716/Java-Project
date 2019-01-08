@@ -35,6 +35,7 @@ import java.applet.AudioClip;
 public class Administrador {
     
     public ArrayList<Question> questionList = new ArrayList<>();
+    private ArrayList <User> userBackUp = new List <>(); 
     InputStream serviceAccount;
     GoogleCredentials credentials;
     FirebaseOptions options;
@@ -59,7 +60,8 @@ public class Administrador {
     }
     
     public void addUser(String name, String password, String country, long age) {
-        ApiFuture<WriteResult> newUser = database.collection("User").document("user_" + name + "_2018").set(new User(name, password, country, age));
+        String userID = "user_" + name + "_2018";
+        ApiFuture<WriteResult> newUser = database.collection("User").document("user_" + name + "_2018").set(new User(name, password, country, age,userID));
         JOptionPane.showMessageDialog(null, "Usuari@ cread@!");
     }
     

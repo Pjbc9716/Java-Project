@@ -13,16 +13,18 @@ public class User {
 
     String userNickname,
             userPassword,
-            userCountry;
+            userCountry,
+            userID;
     Long userAge,
             userPoints;
 
-    public User(String userNickname, String userPassword, String userCountry, Long userAge) {
+    public User(String userNickname, String userPassword, String userCountry, Long userAge, String userID) {
         this.userNickname = userNickname;
         this.userPassword = userPassword;
         this.userCountry = userCountry;
         this.userAge = userAge;
         this.userPoints = 0L;
+        this. userID = userID;
     }
 
     public String getUserNickname() {
